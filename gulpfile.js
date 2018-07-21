@@ -63,7 +63,9 @@ gulp.task('copy', () => {
     .pipe(gulp.dest(destination));
 });
 
-gulp.task('watch', ['build'], () => {
+gulp.task('watch', (done) => {
+  sequence('clean', ['copy', 'js', 'scss', 'index'])(done);
+
   browserSync.init({
     server: './temp',
     browser: 'C:/Program Files/Opera/launcher.exe'
@@ -76,4 +78,6 @@ gulp.task('watch', ['build'], () => {
   gulp.watch('./src/index.html', ['index']);
 });
 
-gulp.task('build', sequence('clean', ['copy', 'js', 'scss', 'index']));
+gulp.task('build', (done) => {
+  sequence('clean', ['copy', 'js', 'scss', 'index'])(done);
+});
