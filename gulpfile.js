@@ -12,7 +12,7 @@ let gulp = require('gulp'),
   development = environments.development,
   production = environments.production,
   browserSync = require('browser-sync').create();
-  
+
 var destination = production() ? './dist/' : './temp/';
 
 gulp.task('scss', () => {
@@ -54,17 +54,20 @@ gulp.task('index', () => {
 });
 
 gulp.task('clean', () => {
-  return gulp.src(['./dist', './temp'], {read: false})
-        .pipe(clean());
+  gulp.src(['./dist', './temp'], {
+    read: false
+  })
+    .pipe(clean());
 });
 
 gulp.task('copy', () => {
-  gulp.src(['./src/assets/img/*', './src/assets/pdf/*'], {base : 'src'})
+  gulp.src(['./src/assets/img/*', './src/assets/pdf/*'], {
+    base: 'src'
+  })
     .pipe(gulp.dest(destination));
 });
 
-gulp.task('watch', (done) => {
-  sequence('clean', ['copy', 'js', 'scss', 'index'])(done);
+gulp.task('watch', ['build'], () => {
 
   browserSync.init({
     server: './temp',

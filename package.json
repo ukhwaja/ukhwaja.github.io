@@ -3,8 +3,8 @@
     "version": "1.0.1",
     "description": "personal site and resume",
     "scripts": {
-        "build": "gulp build --env=production",
-        "watch": "gulp watch --env=development"
+        "build": "gulp build --env production",
+        "serve": "gulp watch --env development"
     },
     "repository": {
         "type": "git",
