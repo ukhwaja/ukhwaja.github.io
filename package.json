@@ -2,7 +2,6 @@
     "name": "numbfall.netlify.com",
     "version": "1.0.1",
     "description": "personal site and resume",
-    "main": "index.html",
     "scripts": {
         "build": "gulp build --env=production",
         "watch": "gulp watch --env=development"
