@@ -16,9 +16,8 @@ let gulp = require('gulp'),
 var destination = production() ? './dist/' : './temp/';
 
 gulp.task('scss', () => {
-  gulp.src('./src/assets/scss/styles.scss')
+  gulp.src('./src/assets/scss/*.scss')
     .pipe(plumber())
-    .pipe(concat('styles.min.css'))
     .pipe(development(sourcemaps.init()))
     .pipe(scss({
       outputStyle: 'compressed'
@@ -30,6 +29,7 @@ gulp.task('scss', () => {
     .pipe(prefixer({
       cascade: false
     }))
+    .pipe(concat('styles.min.css'))
     .pipe(development(sourcemaps.write('.')))
     .pipe(gulp.dest(destination + 'assets/css/'))
     .pipe(development(browserSync.stream()));
@@ -37,18 +37,18 @@ gulp.task('scss', () => {
 });
 
 gulp.task('js', () => {
-  gulp.src('./src/assets/js/main.js')
+  gulp.src('./src/assets/js/*.js')
     .pipe(plumber())
-    .pipe(concat('main.min.js'))
     .pipe(development(sourcemaps.init()))
     .pipe(production(uglify()))
+    .pipe(concat('main.min.js'))
     .pipe(development(sourcemaps.write('.')))
     .pipe(gulp.dest(destination + 'assets/js/'));
   development() ? browserSync.reload() : '';
 });
 
 gulp.task('index', () => {
-  gulp.src('./src/index.html')
+  gulp.src('./src/*.html')
     .pipe(gulp.dest(destination));
   development() ? browserSync.reload() : '';
 });
@@ -62,7 +62,7 @@ gulp.task('clean', () => {
 
 gulp.task('copy', () => {
   gulp.src(['./src/assets/img/*', './src/assets/pdf/*'], {
-    base: 'src'
+    base: 'src/'
   })
     .pipe(gulp.dest(destination));
 });
@@ -78,10 +78,10 @@ gulp.task('watch', ['build'], () => {
 
   gulp.watch('./src/assets/scss/styles.scss', ['scss']);
   gulp.watch('./src/assets/js/main.js', ['js']);
-  gulp.watch('./src/index.html', ['index']);
-  gulp.watch(['./src/assets/img/*', './src/assets/pdf/*'], ['copy']).on('change', browserSync.reload());
+  gulp.watch('./src/*.html', ['index']);
+  gulp.watch(['./src/assets/img/*', './src/assets/pdf/*'], ['copy']).on('change', browserSync.reload);
 });
 
 gulp.task('build', (done) => {
-  sequence('clean', ['copy', 'js', 'scss', 'index'])(done);
+  sequence('clean', ['js', 'scss', 'copy', 'index'])(done);
 });
