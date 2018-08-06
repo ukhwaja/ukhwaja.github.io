@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/numbfall/numbfall-netlify"
+        "url": "https://github.com/numbfall/numbfall.github.io"
     },
     "keywords": [
         "resume",
@@ -16,7 +16,7 @@
     ],
     "author": "Usman Khwaja",
     "license": "ISC",
-    "homepage": "https://numbfall.netlify.com",
+    "homepage": "https://numbfall.github.io",
     "devDependencies": {
         "browser-sync": "^2.24.6",
         "gulp": "^3.9.1",

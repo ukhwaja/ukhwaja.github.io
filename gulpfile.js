@@ -13,7 +13,7 @@ let gulp = require('gulp'),
   production = environments.production,
   browserSync = require('browser-sync').create();
 
-var destination = production() ? './dist/' : './temp/';
+var destination = production() ? './docs/' : './temp/';
 
 gulp.task('scss', () => {
   gulp.src('./src/assets/scss/*.scss')
@@ -54,7 +54,7 @@ gulp.task('index', () => {
 });
 
 gulp.task('clean', () => {
-  gulp.src(['./dist', './temp'], {
+  gulp.src(['./docs', './temp'], {
     read: false
   })
     .pipe(clean());
