@@ -71,7 +71,7 @@ gulp.task('watch', ['build'], () => {
 
   browserSync.init({
     server: './temp',
-    browser: 'C:/Program Files/Opera/launcher.exe'
+    // browser: 'C:/Program Files/Opera/launcher.exe'
     // browser: 'C:/Program Files/Mozilla Firefox/firefox.exe'
     // browser: 'microsoft-edge:http://localhost:3000'
   });
