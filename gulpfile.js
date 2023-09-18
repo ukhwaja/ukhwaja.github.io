@@ -1,6 +1,7 @@
 let gulp = require('gulp'),
+  minisite = require('gulp-minisite'),
   plumber = require('gulp-plumber'),
-  scss = require('gulp-sass'),
+  scss = require('gulp-sass')(require('sass')),
   concat = require('gulp-concat'),
   prefixer = require('gulp-autoprefixer'),
   uglify = require('gulp-uglify-es').default,
@@ -48,7 +49,8 @@ gulp.task('js', () => {
 });
 
 gulp.task('index', () => {
-  gulp.src('./src/*.html')
+  gulp.src('./src/**/*')
+    .pipe(minisite())
     .pipe(gulp.dest(destination));
   development() ? browserSync.reload() : '';
 });
@@ -78,7 +80,7 @@ gulp.task('watch', ['build'], () => {
 
   gulp.watch('./src/assets/scss/styles.scss', ['scss']);
   gulp.watch('./src/assets/js/main.js', ['js']);
-  gulp.watch('./src/*.html', ['index']);
+  gulp.watch(['./template/**/*.html', './src/**/*.yml', './src/**/*.md'], ['index']);
   gulp.watch(['./src/assets/img/*', './src/assets/pdf/*'], ['copy']).on('change', browserSync.reload);
 });
 

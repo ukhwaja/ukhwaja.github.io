@@ -79,16 +79,16 @@ body {
 }
 
 @mixin responsive-font($responsive, $min, $max: false, $fallback: false) {
-    $responsive-unitless: $responsive / ($responsive - $responsive + 1);
+    $responsive-unitless: calc($responsive / ($responsive - $responsive + 1vw));
     $dimension: if(unit($responsive) == 'vh', 'height', 'width');
-    $min-breakpoint: $min / $responsive-unitless * 100;
+    $min-breakpoint: calc($min / $responsive-unitless * 100);
     
     @media (max-#{$dimension}: #{$min-breakpoint}) {
       font-size: $min;
     }
     
     @if $max {
-      $max-breakpoint: $max / $responsive-unitless * 100;
+      $max-breakpoint: calc($max / $responsive-unitless * 100);
       
       @media (min-#{$dimension}: #{$max-breakpoint}) {
         font-size: $max;
@@ -570,7 +570,8 @@ main {
                         margin: 0.5rem 0;
                         padding-left: 1rem;
                         li {
-                            font-style: italic;
+                            // font-style: italic;
+                            list-style: none;
                         }
                     }
                     i {

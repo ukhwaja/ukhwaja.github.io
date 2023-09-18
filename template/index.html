@@ -104,11 +104,11 @@
                     <table class="table">
                         <tr>
                             <th>Name:</th>
-                            <td>Usman Ahmad Khwaja</td>
+                            <td>{{ page.name }}</td>
                         </tr>
                         <tr>
                             <th>Traits:</th>
-                            <td>Loyal, patient, fair, hard-working, true</td>
+                            <td>{{ page.traits }}</td>
                         </tr>
                         <tr>
                             <th>Age:</th>
@@ -116,12 +116,11 @@
                         </tr>
                         <tr>
                             <th>Location:</th>
-                            <td>Gulzar-e-Quaid 46222, Pakistan</td>
+                            <td>{{ page.location }}</td>
                         </tr>
                     </table>
                     <div class="quote">
-                        <p>I am an all-round web developer with good knowledge of front-end technology. I love design. I love
-                            code. I love structure. I love spending time fixing details to achieve pixel-perfection.</p>
+                        <p>{{ page.about }}</p>
                         <i class="fa fa-pencil-alt" aria-hidden="true"></i>
                     </div>
                 </div>
@@ -132,138 +131,76 @@
                 <h3>Education</h3>
             </div>
             <div class="column content">
-                <div class="experience">
-                    <div class="title">
-                        <h4>Bachelors of Science (Hons) in Games Technology</h4>
-                    </div>
-                    <div class="office">
-                        <p>
-                            <i class="fa fa-university fa-fw" aria-hidden="true"></i>Limkokwing University of Creative Technology</p>
-                    </div>
-
-                    <div class="location">
-                        <p>
-                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>Cyberjaya</p>
-                    </div>
-                    <div class="span">
-                        <p>
-                            <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>August 2011 &ndash; August 2015</p>
-                    </div>
-                    <div class="link">
-                        <a href="https://www.limkokwing.net/malaysia/academic/courses_details/bsc_hons_in_games_technology" rel="noopener" target="_blank">
-                            <i class="fa fa-link fa-fw" aria-hidden="true"></i>limkokwing.net/malaysia</a>
-                    </div>
-                    <div class="desc">
-                        <p>3.82 CGPA. Key areas of study included Programming, Business, Marketing, Digital Modeling, Animation,
-                            Artificial Intelligence, Unity and Unreal Engine.</p>
-                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
+                {% for edu in collections.education | reverse %}
+<div class="experience">
+    <div class="title">
+        <h4>{{ edu.title }}</h4>
+    </div>
+    <div class="office">
+        <p>
+            <i class="fa fa-building fa-fw" aria-hidden="true"></i>{{ edu.institute }}</p>
+    </div>
+    <div class="location">
+        <p>
+            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>{{ edu.location }}</p>
+    </div>
+    <div class="span">
+        <p>
+            <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>{{ edu.duration }}</p>
+    </div>
+    <div class="link">
+        <p>
+            <i class="fa fa-link fa-fw" aria-hidden="true"></i>
+            <span class="link-span">
+                <a href="{{ edu.href }}" rel="noopener" target="_blank">{{ edu.link }}</a>
+            </span>
+        </p>
+    </div>
+    <div class="desc">
+        {{ edu.body | markdown }}
+        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+    </div>
+</div>
+{% endfor %}
         </section>
         <section id="experience" class="work">
             <div class="column label">
                 <h3>Experience</h3>
             </div>
             <div class="column content">
+                {% for item in collections.work | reverse %}
                 <div class="experience">
                     <div class="title">
-                        <h4>Front-end Solo</h4>
+                        <h4>{{ item.title }}</h4>
                     </div>
                     <div class="office">
                         <p>
-                            <i class="fa fa-building fa-fw" aria-hidden="true"></i>Qairus Pvt Ltd</p>
+                            <i class="fa fa-building fa-fw" aria-hidden="true"></i>{{ item.company }}</p>
                     </div>
                     <div class="location">
                         <p>
-                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>Lahore</p>
+                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>{{ item.location }}</p>
                     </div>
                     <div class="span">
                         <p>
-                            <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>March 2016 &ndash; November 2016</p>
+                            <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>{{ item.duration }}</p>
                     </div>
+                    {% if item.link %}
                     <div class="link">
                         <p>
                             <i class="fa fa-link fa-fw" aria-hidden="true"></i>
                             <span class="link-span">
-                                <a href="http://www.qairus.org" rel="noopener" target="_blank">qairus.org</a>
+                                <a href="{{ item.href }}" rel="noopener" target="_blank">{{ item.link }}</a>
                             </span>
                         </p>
                     </div>
+                    {% endif %}
                     <div class="desc">
-                        <p>Remade product website. Coded new API calls. Added customer login, checkout, subscription management,
-                            registration form, and payment system.</p>
+                        {{ item.details | markdown }}
                         <i class="fa fa-pencil-alt" aria-hidden="true"></i>
                     </div>
                 </div>
-                <div class="experience">
-                    <div class="title">
-                        <h4>Web Developer</h4>
-                    </div>
-                    <div class="office">
-                        <p>
-                            <i class="fa fa-building fa-fw" aria-hidden="true"></i>The Developer Line</p>
-                    </div>
-                    <div class="location">
-                        <p>
-                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>Rawalpindi</p>
-                    </div>
-                    <div class="span">
-                        <p>
-                            <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>February 2017 &ndash; August 2017</p>
-                    </div>
-                    <div class="link">
-                        <p>
-                            <i class="fa fa-link fa-fw" aria-hidden="true"></i>
-                            <span class="link-span">
-                                <a href="http://www.developerline.com" rel="noopener" target="_blank">developerline.com</a>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="desc">
-                        <p>Worked on a variety of client projects. Used frameworks such as Vue.js, ASP.NET, and WordPress to
-                            deliver products. I am most proud of my
-                            <a href="http://lakecustom.com" rel="noopener" target="_blank">lakecustom.com</a> project.</p>
-                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                    </div>
-                </div>
-                <div class="experience">
-                    <div class="title">
-                        <h4>Webmaster</h4>
-                    </div>
-                    <div class="office">
-                        <p>
-                            <i class="fa fa-building fa-fw" aria-hidden="true"></i>Al-Huda International</p>
-                    </div>
-                    <div class="location">
-                        <p>
-                            <i class="fa fa-map-marker fa-fw" aria-hidden="true"></i>Islamabad</p>
-                    </div>
-                    <div class="span">
-                        <p>
-                            <i class="fa fa-calendar fa-fw" aria-hidden="true"></i>February 2018 &ndash; Present</p>
-                    </div>
-                    <div class="link">
-                        <p>
-                            <i class="fa fa-link fa-fw" aria-hidden="true"></i>
-                            <span class="link-span">
-                                <a href="http://www.alhudapk.com" rel="noopener" target="_blank">alhudapk.com</a>,&nbsp;
-                            </span>
-                            <span class="link-span">
-                                <a href="http://www.alhuda.international" rel="noopener" target="_blank">alhuda.international</a>,&nbsp;
-                            </span>
-                            <span class="link-span">
-                                <a href="https://www.alhudapublications.org" rel="noopener" target="_blank">alhudapublications.org</a>
-                            </span>
-                        </p>
-                    </div>
-                    <div class="desc">
-                        <p>Responsibilities to maintain websites for the company. Ensure the web servers, hardware and software
-                            are operating accurately. Design new pages. Develop new features. Generate and revise content.
-                            Examine and analyze site traffic. Monitor performance and improve load speeds.</p>
-                        <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </section>
         <section id="abilities" class="abilities">
@@ -329,12 +266,11 @@
                     <div class="">
                         <a class="email" rel="noopener" target="_blank">
                             <i class="fa fa-envelope fa-fw" aria-hidden="true" aria-label="gmail"></i>
-                            <ins id="email">&#9608;&#9608;&#9608;&#9608;&#9608;</ins>@live.com</a>
+                            <ins id="email">&#9608;&#9608;&#9608;&#9608;&#9608;</ins>@njit.edu</a>
                     </div>
                     <div class="">
-                        <a class="skype" rel="noopener" target="_blank">
-                            <i class="fab fa-skype fa-fw" aria-hidden="true" aria-label="skype"></i>live:
-                            <ins id="skype">&#9608;&#9608;&#9608;&#9608;&#9608;</ins>
+                        <a class="twitter" rel="noopener" target="_blank">
+                            <i class="fab fa-twitter fa-fw" aria-hidden="true" aria-label="twitter"></i>twitter.com/<ins id="twitter">&#9608;&#9608;&#9608;&#9608;&#9608;</ins>
                         </a>
                     </div>
                 </div>

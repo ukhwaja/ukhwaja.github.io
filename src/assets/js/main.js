@@ -63,16 +63,16 @@ const rateMe = () => {
 const revealAll = () => {
   const whatsapp = document.getElementById('whatsapp');
   const email = document.getElementById('email');
-  const skype = document.getElementById('skype');
+  const twitter = document.getElementById('twitter');
   whatsapp.innerHTML = '5162700';
   whatsapp.parentElement.setAttribute('href', 'whatsapp://send?text=Hello World!&phone=923215162700');
   whatsapp.parentElement.style.cursor = 'pointer';
-  email.innerHTML = 'numbfall';
-  email.parentElement.setAttribute('href', 'mailto:numbfall@live.com');
+  email.innerHTML = 'uak';
+  email.parentElement.setAttribute('href', 'mailto:uak@njit.edu');
   email.parentElement.style.cursor = 'pointer';
-  skype.innerHTML = 'numbfall';
-  skype.parentElement.setAttribute('href', 'skype:numbfall?userinfo');
-  skype.parentElement.style.cursor = 'pointer';
+  twitter.innerHTML = 'numbfall';
+  twitter.parentElement.setAttribute('href', 'https://twitter.com/numbfall');
+  twitter.parentElement.style.cursor = 'pointer';
   document.querySelector('.caution').style.display = 'inline-block';
 };
 
