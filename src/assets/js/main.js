@@ -64,8 +64,8 @@ const revealAll = () => {
   const whatsapp = document.getElementById('whatsapp');
   const email = document.getElementById('email');
   const twitter = document.getElementById('twitter');
-  whatsapp.innerHTML = '5162700';
-  whatsapp.parentElement.setAttribute('href', 'whatsapp://send?text=Hello World!&phone=923215162700');
+  whatsapp.innerHTML = '687 4706';
+  whatsapp.parentElement.setAttribute('href', 'whatsapp://send?text=Hello World!&phone=+19736874706');
   whatsapp.parentElement.style.cursor = 'pointer';
   email.innerHTML = 'uak';
   email.parentElement.setAttribute('href', 'mailto:uak@njit.edu');
