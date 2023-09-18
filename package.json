@@ -3,8 +3,9 @@
     "version": "1.0.1",
     "description": "personal site and resume",
     "scripts": {
-        "build": "gulp build --env production",
-        "serve": "rm -rf temp & gulp watch --env development"
+        "build": "rm -rf dist & gulp build --env production",
+        "serve": "rm -rf temp & gulp watch --env development",
+        "deploy": "git subtree push --prefix dist origin gh-pages"
     },
     "repository": {
         "type": "git",
