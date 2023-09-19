@@ -4,7 +4,7 @@
     "description": "personal site and resume",
     "scripts": {
         "build": "rm -rf dist & gulp build --env production",
-        "serve": "rm -rf temp & gulp watch --env development",
+        "serve": "rm -rf temp & gulp --env development",
         "deploy": "git subtree push --prefix dist origin gh-pages"
     },
     "repository": {
@@ -20,8 +20,8 @@
     "homepage": "https://numbfall.github.io",
     "devDependencies": {
         "browser-sync": "^2.29.3",
-        "gulp": "^3.9.1",
-        "gulp-autoprefixer": "^6.1.0",
+        "gulp": "^4.0.2",
+        "gulp-autoprefixer": "^8.0.0",
         "gulp-clean": "^0.4.0",
         "gulp-coffee": "^3.0.3",
         "gulp-concat": "^2.6.1",
@@ -36,8 +36,5 @@
     },
     "dependencies": {
         "sass": "^1.67.0"
-    },
-    "overrides": {
-        "graceful-fs": "^4.2.11"
     }
 }
