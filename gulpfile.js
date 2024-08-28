@@ -10,7 +10,6 @@ const notify = require('gulp-notify');
 const sourcemaps = require('gulp-sourcemaps');
 const browserSync = require('browser-sync').create();
 
-
 let development = environments.development;
 let production = environments.production;
 
@@ -53,7 +52,7 @@ function css() {
   }
 
   function copy() {
-    return src(['./src/assets/img/*', './src/assets/pdf/*'], {base: 'src/'})
+    return src(['./src/assets/img/*', './src/assets/pdf/*'], {base: 'src/', encoding: false})
       .pipe(dest(destination));
   }
 
@@ -74,7 +73,7 @@ function css() {
   function watchTask() {
     watch('./src/assets/scss/styles.scss', css);
     watch('./src/assets/js/main.js', series(js, browsersyncReload));
-    watch(['./template/**/*.html', './src/**/*.yml', './src/**/*.md'], series(index, browsersyncReload));
+    watch(['./template/**/*.html', './src/**/*.yml', './src/**/*.md', './src/**/*.svg'], series(copy, index, browsersyncReload));
   };
 
   exports.build = series(

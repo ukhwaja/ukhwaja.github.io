@@ -1,5 +1,5 @@
 {
-    "name": "numbfall.netlify.com",
+    "name": "ukhwaja.github.io",
     "version": "1.0.1",
     "description": "personal site and resume",
     "scripts": {
@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/numbfall/numbfall.github.io"
+        "url": "https://github.com/ukhwaja/ukhwaja.github.io"
     },
     "keywords": [
         "resume",
@@ -17,10 +17,10 @@
     ],
     "author": "Usman Khwaja",
     "license": "ISC",
-    "homepage": "https://numbfall.github.io",
+    "homepage": "https://ukhwaja.github.io",
     "devDependencies": {
-        "browser-sync": "^2.29.3",
-        "gulp": "^4.0.2",
+        "browser-sync": "^3.0.2",
+        "gulp": "^5.0.0",
         "gulp-autoprefixer": "^8.0.0",
         "gulp-concat": "^2.6.1",
         "gulp-environments": "^1.0.1",
@@ -30,6 +30,7 @@
         "gulp-sass": "^5.1.0",
         "gulp-sourcemaps": "^3.0.0",
         "gulp-uglify-es": "^3.0.0",
-        "sass": "^1.67.0"
-    }
+        "sass": "^1.77.8"
+    },
+    "packageManager": "yarn@4.2.2+sha512.c44e283c54e02de9d1da8687025b030078c1b9648d2895a65aab8e64225bfb7becba87e1809fc0b4b6778bbd47a1e2ab6ac647de4c5e383a53a7c17db6c3ff4b"
 }
